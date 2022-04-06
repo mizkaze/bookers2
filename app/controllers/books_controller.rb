@@ -22,6 +22,7 @@ class BooksController < ApplicationController
     # ↑今ログインしているユーザーの情報が表示できればいい！
   end
 
+  # 本の詳細、必要なのは特定の本と、その本のユーザーのみ
   def show
     # 《投稿フォーム用に必要》
     @new_book = Book.new

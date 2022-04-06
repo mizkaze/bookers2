@@ -4,3 +4,23 @@
 <!--テンプレートで使っている変数は@userだけじゃない！-->
 <%= render 'tpl', user: @user, book: @new_book %>
 <!--@new_bookを使えるようにする記述が必要！！-->
+
+
+<h1>一覧</h1>
+<% @books.each do |book| %>
+
+  <p>タイトル</p>
+  <%= book.title %>
+
+  <p>説明</p>
+  <%= book.body %>
+
+<% end %>
+
+
+
+
+
+
+
+
