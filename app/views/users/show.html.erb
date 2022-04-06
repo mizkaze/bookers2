@@ -1,2 +1,6 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<!--テンプレートで使っている変数は@userだけじゃない！-->
+<%= render 'tpl', user: @user, book: @new_book %>
+<!--@new_bookを使えるようにする記述が必要！！-->
