@@ -1,2 +1,23 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+
+<div>
+  <h2>User info</h2>
+  <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+
+    <div class="form_group">
+      <label for="user_name">Name</label>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form_group">
+      <label for="user_introduction">Introduction</label>
+      <%= f.text_area :intro %>
+    </div>
+
+    <div class="form_group">
+      <%= f.submit 'Update User' %>
+    </div>
+
+  <% end %>
+</div>
