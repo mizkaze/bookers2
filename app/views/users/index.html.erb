@@ -6,39 +6,34 @@
 <!--@new_bookを使えるようにする記述が必要！！-->
 
 
-<h2>全ユーザー</h2>
-<% @users.each do |user| %>
-
 <div>
-  <table class="table">
+  <h2>全ユーザー</h2>
+  <% @users.each do |user| %>
 
-    <thead>
-      <tr>
-        <th>image</th>
-        <th>name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+    <table class="table">
 
-  <tbody>
-    <tr>
-      <!--プロフ画-->
-      <!--<td>ここにプロフ画のコード</td>-->
-      <!--↑user(ブロック変数).get_profile_image(user.rbで定義したメソッド)-->
-      <!--名前-->
-      <td><%= user.name %></td>
-      <!--users#showへのリンク-->
-      <td><%= %></td>
-    </tr>
-  </tbody>
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  </table>
+      <tbody>
+        <tr>
+          <!--プロフ画-->
+          <!--<td>ここにプロフ画のコード</td>-->
+          <!--↑user(ブロック変数).get_profile_image(user.rbで定義したメソッド)-->
+          <!--名前-->
+          <td><%= user.name %></td>
+          <!--users#showへのリンク-->
+          <td><%= link_to "Show" , user_path(user.id) %></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  <% end %>
+
 </div>
-
-<% end %>
-
-
-
-
-
-

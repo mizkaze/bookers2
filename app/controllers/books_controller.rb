@@ -20,13 +20,14 @@ class BooksController < ApplicationController
     @new_book = Book.new
     @user = current_user
     # ↑今ログインしているユーザーの情報が表示できればいい！
+    @books = Book.all
   end
 
   # 本の詳細、必要なのは特定の本と、その本のユーザーのみ
   def show
     # 《投稿フォーム用に必要》
     @new_book = Book.new
-    @user = @book.user_id
+    @user = current_user
     # ↓すでに作った(既存の)本を表示
     @book = Book.find(params[:id])
   end

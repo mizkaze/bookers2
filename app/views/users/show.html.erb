@@ -6,17 +6,42 @@
 <!--@new_bookを使えるようにする記述が必要！！-->
 
 
-<h1>一覧</h1>
-<% @books.each do |book| %>
+<div>
 
-  <p>タイトル</p>
-  <%= book.title %>
+  <h2>一覧</h2>
+  <% @books.each do |book| %>
 
-  <p>説明</p>
-  <%= book.body %>
+    <table>
 
-<% end %>
+      <thead>
+        <tr>
+          <!--imageの分-->
+          <th></th>
+          <!--title-->
+          <th>Title</th>
+          <!--opinion-->
+          <th>Opinion</th>
+          <!--colspan-->
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <tr>
+          <!--imageの分-->
+          <td></td>
+          <!--title-->
+          <td><%= link_to book.title , book_path(book.id) %></td>
+          <!--opinion-->
+          <td><%= book.body %></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  <% end %>
+
+</div>
 
 
 

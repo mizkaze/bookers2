@@ -4,3 +4,36 @@
 <!--テンプレートで使っている変数は@userだけじゃない！-->
 <%= render 'users/tpl', user: @user, book: @new_book %>
 <!--@new_bookを使えるようにする記述が必要-->
+
+
+<div>
+  <h2>すべての本</h2>
+  <% @books.each do |book| %>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <!--<td>ここにプロフ画のコード</td>-->
+          <td><%= link_to book.title , book_path(book.id) %></td>
+          <td><%= book.body %></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  <% end %>
+
+</div>
+
+
+
