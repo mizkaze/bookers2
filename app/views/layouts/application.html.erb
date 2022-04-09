@@ -19,7 +19,7 @@
           <%= link_to "Home" , user_path(current_user) %>
           <%= link_to "Users" , users_path %>
           <%= link_to "Books" , books_path %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :get %>
           <!--「ログアウト」を押すと、今いるページ＝＞destroy_user_session_pathに移動-->
           <!--その後root_pathにredirect_toする-->
         </li>
