@@ -23,7 +23,13 @@
 
       <tbody>
         <tr>
-          <!--<td>ここにプロフ画のコード</td>-->
+          <td>
+            <%= link_to user_path(book.user.id) do %>
+              <!--↑アソシエーションのあるモデル同士であれば、-->
+              <!--[変数].[モデル名]で関連する情報を操作できる↓-->
+              <%= image_tag book.user.get_profile_image %>
+            <% end %>
+          </td>
           <td><%= link_to book.title , book_path(book.id) %></td>
           <td><%= book.body %></td>
         </tr>

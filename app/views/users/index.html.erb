@@ -12,6 +12,7 @@
 
     <table class="table">
 
+      <!--theadの部分が繰り返し表示されるのを解決する-->
       <thead>
         <tr>
           <th>image</th>
@@ -23,7 +24,7 @@
       <tbody>
         <tr>
           <!--プロフ画-->
-          <!--<td>ここにプロフ画のコード</td>-->
+          <td><%= image_tag user.get_profile_image %></td>
           <!--↑user(ブロック変数).get_profile_image(user.rbで定義したメソッド)-->
           <!--名前-->
           <td><%= user.name %></td>

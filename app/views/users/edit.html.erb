@@ -10,6 +10,11 @@
       <%= f.text_field :name %>
     </div>
 
+    <div>
+      <label for="user_image">Image</label>
+      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
+
     <div class="form_group">
       <label for="user_introduction">Introduction</label>
       <%= f.text_area :intro %>
