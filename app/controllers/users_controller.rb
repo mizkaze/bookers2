@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def update
     user = current_user
     user.update(user_params)
+    flash[:notice] = "You have updated user successfully."
     redirect_to user_path(user.id)
     # (user.id)のuserはローカル変数のuser
   end

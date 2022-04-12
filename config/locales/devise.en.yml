@@ -1,4 +1,5 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+# deviseを使ったフラッシュメッセージで表示されるメッセージ内容が書いてあるよ
 
 en:
   devise:
