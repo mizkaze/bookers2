@@ -11,10 +11,17 @@ class BooksController < ApplicationController
     @new_book = Book.new(book_params)
     @new_book.user_id = current_user.id
     # ↑新しい本のユーザーidに、ログイン中のユーザーidを使用
-    @new_book.save
-    # flash
-    flash[:notice] = "You have created book successfully."
-    redirect_to book_path(@new_book.id)
+    if @new_book.save
+      # flash
+      flash[:notice] = "You have created book successfully."
+      redirect_to book_path(@new_book.id)
+    else
+      #《renderした先で必要になるアクション》
+      @user = current_user
+      @books = Book.all
+      render :index
+      # ↑indexにrenderしても、使えるアクションは「create」で定義されたものだけ！注意！！
+    end
   end
 
   def index
@@ -39,11 +46,19 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  # ↑↓同じ「edit」ページのアクション
+  # 同じ「Book.find(params[:id])」を使うなら、変数名も揃えたほうがいい
+
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    flash[:notice] = "You have updated book successfully."
-    redirect_to book_path(book.id)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] = "You have updated book successfully."
+      redirect_to book_path(@book.id)
+    else
+      # @book = Book(params[:id])と書いてしまうと、
+      # もう一度本を取得し直すことになり、@bookで発生したエラーもリセットされる
+      render :edit
+    end
   end
 
   def destroy

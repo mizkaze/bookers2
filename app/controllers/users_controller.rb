@@ -25,11 +25,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = current_user
-    user.update(user_params)
-    flash[:notice] = "You have updated user successfully."
-    redirect_to user_path(user.id)
-    # (user.id)のuserはローカル変数のuser
+    @user = current_user
+    if @user.update(user_params)
+      flash[:notice] = "You have updated user successfully."
+      redirect_to user_path(@user.id)
+      # (@user.id)のuserは変数の@user
+    else
+      render :edit
+    end
   end
 
 
