@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # =deviseを使用するときURLに「users」を含む
 
   root to: "homes#top"
+  get 'home/about' => 'homes#about', as: 'about'
 
   resources :books
   resources :users
