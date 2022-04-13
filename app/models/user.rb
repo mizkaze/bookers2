@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   # バリデーション
   validates :name, presence: true, uniqueness: true, length: { minimun: 2, maximum: 20 }
-  validates :intro, presence: true, length: { maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
 
   #アソシエーション
   has_many :books, dependent: :destroy
