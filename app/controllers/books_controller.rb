@@ -1,12 +1,6 @@
 class BooksController < ApplicationController
 
   before_action :ensure_current_user, {only: [:edit, :update]}
-  def ensure_current_user
-    if @current_user.id != params[:id].to_i
-      redirect_to("/")
-    end
-  end
-
 
   def new
     @new_book = Book.new
@@ -63,7 +57,7 @@ class BooksController < ApplicationController
       flash[:notice] = "You have updated book successfully."
       redirect_to book_path(@book.id)
     else
-      # @book = Book(params[:id])と書いてしまうと、
+      # ここに@book = Book(params[:id])と書いてしまうと、
       # もう一度本を取得し直すことになり、@bookで発生したエラーもリセットされる
       render :edit
     end
@@ -80,6 +74,14 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :body)
+  end
+
+  def ensure_current_user
+    user = Book.find(params[:id]).user
+    # URLから本の情報を取得し、その情報からuserの情報を引き出す
+    if current_user.id != user.id
+      redirect_to("/books")
+    end
   end
 
 

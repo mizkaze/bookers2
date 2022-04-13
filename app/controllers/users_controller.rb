@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
 
   before_action :ensure_current_user, {only: [:edit, :update]}
-  def ensure_current_user
-    if @current_user.id != params[:id].to_i
-      redirect_to("/")
-    end
-  end
 
   def index
     # 《投稿フォーム用》
@@ -48,5 +43,13 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :intro, :profile_image)
   end
+
+   def ensure_current_user
+    if current_user.id != params[:id].to_i
+      # 「!=」＝「≠」
+      # params[:id]は文字列型(String)、current_user.idは整数型(Integer)
+      redirect_to("/users/sign_in")
+    end
+   end
 
 end
