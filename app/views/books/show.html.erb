@@ -1,12 +1,9 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
-
 <!--テンプレートで使っている変数は@userだけじゃない！-->
 <%= render 'users/tpl', user: @user, book: @new_book %>
 <!--@new_bookを使えるようにする記述が必要！！-->
 
 <div>
-  <h2>本の詳細</h2>
+  <h2>Book detail</h2>
 
   <table>
     <tbody>
@@ -23,14 +20,13 @@
         <td><%= link_to @book.title , book_path(@book.id) %></td>
         <!--body-->
         <td><%= @book.body %></td>
-        <!--editボタン-->
-        <td><%= link_to "Edit" , edit_book_path(@book.id) %></td>
-        <!--destroyボタン/「botton_to」に変えたことで機能するようになった-->
-        <td>
+
           <% if @book.user == current_user %>
-            <%= link_to "Destroy" , book_path(@book.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+            <!--editボタン-->
+            <td><%= link_to "Edit" , edit_book_path(@book.id) %></td>
+            <!--destroyボタン/「botton_to」に変えたことで機能するようになった-->
+            <td><%= link_to "Destroy" , book_path(@book.id), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
           <% end %>
-        </td>
       </tr>
     </tbody>
   </table>

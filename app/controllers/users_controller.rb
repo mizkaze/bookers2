@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def show
     # 《投稿フォーム用》
     @new_book = Book.new
-    @user = current_user
     # ↓URLからユーザーの情報を取得する
     @id_user = User.find(params[:id])
     # ↓一覧表示のためのインスタンス変数(15章)

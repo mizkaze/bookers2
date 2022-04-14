@@ -38,7 +38,7 @@ class BooksController < ApplicationController
   def show
     # 《投稿フォーム用に必要》
     @new_book = Book.new
-    @user = current_user
+    @user = Book.find(params[:id]).user
     # ↓すでに作った(既存の)本を表示
     @book = Book.find(params[:id])
   end
