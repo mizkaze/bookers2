@@ -32,7 +32,9 @@
 
 
   <div class="row">
-    <%= link_to "Edit" , edit_user_path(user.id) %>
+    <%= link_to edit_user_path(user.id) , class: "btn btn-secondary btn-block" do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <% end %>
   </div>
 
 
@@ -48,16 +50,16 @@
 
   <div class="form_group">
     <label for="book_title">Title</label>
-    <%= f.text_field :title %>
+    <%= f.text_field :title , class: "form-control book_title" %>
   </div>
 
   <div class="form_group">
     <label for="book_opinion">Opinion</label>
-    <%= f.text_area :body %>
+    <%= f.text_area :body , class: "form-control book_body" %>
   </div>
 
   <div class="form_group">
-    <%= f.submit 'Create Book' %>
+    <%= f.submit 'Create Book' , class: "btn btn-success" %>
   </div>
 
 <% end %>
