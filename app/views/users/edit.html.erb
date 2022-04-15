@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>User info</h2>
 
       <% if @user.errors.any? %>
@@ -17,21 +17,21 @@
 
         <div class="form_group">
           <label for="user_name">Name</label>
-          <input class="form-control name" type="text" value="ttt" name="user[name]" id="user_name">
+          <%= f.text_field :name , class: "form-control name" %>
         </div>
 
         <div>
           <label for="user_image">Image</label>
-          <input class="form-control-file user_image" accept="image/*" type="file" name="user[profile_image]" id="user_profile_image">
+          <%= f.file_field :profile_image, accept: "image/*" , class: "form-control-file user_image" %>
         </div>
 
         <div class="form_group">
           <label for="user_introduction">Introduction</label>
-          <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
+          <%= f.text_area :introduction , class: "form-control introduction" %>
         </div>
 
         <div class="form_group">
-          <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
+          <%= f.submit 'Update User' , class: "btn btn-secondary" %>
         </div>
 
       <% end %>
