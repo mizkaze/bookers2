@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>Bookers2</title>
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/0c60ffd1cc.js" crossorigin="anonymous"></script>
+
+    <!--CSSはこの下に書く-->
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -20,10 +25,22 @@
             <%= link_to "Bookers" , root_path %>
               <div>
                 <ul>
-                  <li><%= link_to "Home" , user_path(current_user) %></li>
-                  <li><%= link_to "Users" , users_path %></li>
-                  <li><%= link_to "Books" , books_path %></li>
-                  <li><%= link_to "Log out", destroy_user_session_path, method: :get %></li>
+                  <li>
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <%= link_to "Home" , user_path(current_user) %>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-users"></i>
+                    <%= link_to "Users" , users_path %>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-book-open"></i>
+                    <%= link_to "Books" , books_path %>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <%= link_to "Log out", destroy_user_session_path, method: :get %>
+                  </li>
                   <!--「ログアウト」を押すと、今いるページ＝＞destroy_user_session_pathに移動-->
                   <!--その後root_pathにredirect_toする-->
                 </ul>
@@ -37,10 +54,22 @@
             <%= link_to "Bookers" , root_path %>
             <div>
               <ul>
-                <li><%= link_to "Home" , root_path %></li>
-                <li><%= link_to "About" , about_path %></li>
-                <li><%= link_to "Sign up", new_user_registration_path %></li>
-                <li><%= link_to "Log in", new_user_session_path %></li>
+                <li>
+                  <i class="fa-solid fa-house-chimney"></i>
+                  <%= link_to "Home" , root_path %>
+                </li>
+                <li>
+                  <i class="fa-solid fa-link"></i>
+                  <%= link_to "About" , about_path %>
+                </li>
+                <li>
+                  <i class="fa-solid fa-user-plus"></i>
+                  <%= link_to "Sign up", new_user_registration_path %>
+                </li>
+                <li>
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <%= link_to "Log in", new_user_session_path %>
+                </li>
               </ul>
             </div>
           </div>
