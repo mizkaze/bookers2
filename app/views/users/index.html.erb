@@ -1,40 +1,48 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
 
-<!--テンプレートで使っている変数は@userだけじゃない！-->
-<%= render 'tpl', user: @user, book: @new_book %>
-<!--@new_bookを使えるようにする記述が必要！！-->
+    <div class="col-md-3">
+      <!--テンプレートで使っている変数は@userだけじゃない！-->
+      <%= render 'tpl', user: @user, book: @new_book %>
+      <!--@new_bookを使えるようにする記述が必要！！-->
+    </div>
 
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
 
-<div>
-  <h2>全ユーザー</h2>
-  <% @users.each do |user| %>
+      <table class="table">
 
-    <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-      <!--theadの部分が繰り返し表示されるのを解決する-->
-      <thead>
-        <tr>
-          <th>image</th>
-          <th>name</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <!--プロフ画-->
+              <td><%= image_tag user.get_profile_image %></td>
+              <!--↑user(ブロック変数).get_profile_image(user.rbで定義したメソッド)-->
+              <!--名前-->
+              <td><%= user.name %></td>
+              <!--users#showへのリンク-->
+              <td><%= link_to "Show" , user_path(user.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
 
-      <tbody>
-        <tr>
-          <!--プロフ画-->
-          <td><%= image_tag user.get_profile_image %></td>
-          <!--↑user(ブロック変数).get_profile_image(user.rbで定義したメソッド)-->
-          <!--名前-->
-          <td><%= user.name %></td>
-          <!--users#showへのリンク-->
-          <td><%= link_to "Show" , user_path(user.id) %></td>
-        </tr>
-      </tbody>
+      </table>
 
-    </table>
+    </div>
 
-  <% end %>
-
+  </div>
 </div>
+
+
+
+
+
+
